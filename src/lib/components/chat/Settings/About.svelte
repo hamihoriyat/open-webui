@@ -51,7 +51,7 @@
 					{$i18n.t('Version')}
 				</div>
 			</div>
-			<div class="flex w-full justify-between items-center">
+			<!-- <div class="flex w-full justify-between items-center">
 				<div class="flex flex-col text-xs text-gray-700 dark:text-gray-200">
 					<div class="flex gap-1">
 						<Tooltip content={WEBUI_BUILD_HASH}>
@@ -88,10 +88,10 @@
 				>
 					{$i18n.t('Check for updates')}
 				</button>
-			</div>
+			</div> -->
 		</div>
 
-		{#if ollamaVersion}
+		<!-- {#if ollamaVersion}
 			<hr class=" dark:border-gray-850" />
 
 			<div>
@@ -102,11 +102,11 @@
 					</div>
 				</div>
 			</div>
-		{/if}
+		{/if} -->
 
 		<hr class=" dark:border-gray-850" />
 
-		<div class="flex space-x-1">
+		<!-- <div class="flex space-x-1">
 			<a href="https://discord.gg/5rJgQTnV4s" target="_blank">
 				<img
 					alt="Discord"
@@ -139,6 +139,6 @@
 				href="https://github.com/tjbck"
 				target="_blank">Timothy J. Baek</a
 			>
-		</div>
+		</div> -->
 	</div>
 </div>
