@@ -412,7 +412,7 @@
 
 <style>
 	.font-mona {
-		font-family: 'Mona Sans';
+		font-family: 'Vazir-Medium';
 	}
 
 	.scrollbar-hidden::-webkit-scrollbar {
