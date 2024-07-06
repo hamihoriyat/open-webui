@@ -146,6 +146,9 @@ export const userSignUp = async (
 	name: string,
 	email: string,
 	password: string,
+	//Added customize code with Hami
+	mobile: string,
+	//
 	profile_image_url: string
 ) => {
 	let error = null;
@@ -160,6 +163,9 @@ export const userSignUp = async (
 			name: name,
 			email: email,
 			password: password,
+			//Added customize code with Hami
+			mobile: mobile,
+			//
 			profile_image_url: profile_image_url
 		})
 	})
@@ -185,6 +191,9 @@ export const addUser = async (
 	name: string,
 	email: string,
 	password: string,
+	//Added customize code with Hami
+	mobile: string,
+	//
 	role: string = 'pending'
 ) => {
 	let error = null;
@@ -199,6 +208,9 @@ export const addUser = async (
 			name: name,
 			email: email,
 			password: password,
+			//Added customize code with Hami
+			mobile: mobile,
+			//
 			role: role
 		})
 	})

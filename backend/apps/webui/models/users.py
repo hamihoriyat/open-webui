@@ -17,6 +17,9 @@ class User(Model):
     id = CharField(unique=True)
     name = CharField()
     email = CharField()
+    ##Added customize code with Hami##
+    mobile = CharField()
+    ##
     role = CharField()
     profile_image_url = TextField()
 
@@ -44,6 +47,9 @@ class UserModel(BaseModel):
     id: str
     name: str
     email: str
+    ##Added customize code with Hami##
+    mobile: str
+    ##
     role: str = "pending"
     profile_image_url: str
 
@@ -85,6 +91,9 @@ class UsersTable:
         id: str,
         name: str,
         email: str,
+        ##Added customize code with Hami##
+        mobile: str,
+        ##
         profile_image_url: str = "/user.png",
         role: str = "pending",
         oauth_sub: Optional[str] = None,
@@ -94,6 +103,7 @@ class UsersTable:
                 "id": id,
                 "name": name,
                 "email": email,
+                "mobile": mobile,
                 "role": role,
                 "profile_image_url": profile_image_url,
                 "last_active_at": int(time.time()),
