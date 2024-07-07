@@ -110,7 +110,7 @@ export const getSessionUser = async (token: string) => {
 	return res;
 };
 
-export const userSignIn = async (email: string, password: string) => {
+export const userSignIn = async (email: string, password: string, mobile: string) => {
 	let error = null;
 
 	const res = await fetch(`${WEBUI_API_BASE_URL}/auths/signin`, {
@@ -121,7 +121,9 @@ export const userSignIn = async (email: string, password: string) => {
 		credentials: 'include',
 		body: JSON.stringify({
 			email: email,
-			password: password
+			password: password,
+			//Added code by Hami
+			mobile: mobile
 		})
 	})
 		.then(async (res) => {

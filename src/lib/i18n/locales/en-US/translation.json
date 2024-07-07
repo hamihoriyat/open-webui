@@ -355,6 +355,7 @@
 	"MMMM DD, YYYY": "",
 	"MMMM DD, YYYY HH:mm": "",
 	"MMMM DD, YYYY hh:mm:ss A": "",
+	"Mobile": "",
 	"Model '{{modelName}}' has been successfully downloaded.": "",
 	"Model '{{modelTag}}' is already in queue for downloading.": "",
 	"Model {{modelId}} not found": "",

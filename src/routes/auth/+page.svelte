@@ -17,6 +17,7 @@
 	let name = '';
 	let email = '';
 	let password = '';
+	let mobile='';
 
 	const setSessionUser = async (sessionUser) => {
 		if (sessionUser) {
@@ -33,7 +34,7 @@
 	};
 
 	const signInHandler = async () => {
-		const sessionUser = await userSignIn(email, password).catch((error) => {
+		const sessionUser = await userSignIn(email, password,mobile).catch((error) => {
 			toast.error(error);
 			return null;
 		});
@@ -42,7 +43,7 @@
 	};
 
 	const signUpHandler = async () => {
-		const sessionUser = await userSignUp(name, email, password, generateInitialsImage(name)).catch(
+		const sessionUser = await userSignUp(name, email, password,mobile, generateInitialsImage(name)).catch(
 			(error) => {
 				toast.error(error);
 				return null;
@@ -183,6 +184,21 @@
 										class=" px-5 py-3 rounded-2xl w-full text-sm outline-none border dark:border-none dark:bg-gray-900"
 										autocomplete="name"
 										placeholder={$i18n.t('Enter Your Full Name')}
+										required
+									/>
+								</div>
+
+								<hr class=" my-3 dark:border-gray-900" />
+							{/if}
+							{#if mode === 'signup'}
+								<div>
+									<div class=" text-sm font-medium text-left mb-1">{$i18n.t('Mobile')}</div>
+									<input
+										bind:value={mobile}
+										type="text"
+										class=" px-5 py-3 rounded-2xl w-full text-sm outline-none border dark:border-none dark:bg-gray-900"
+										autocomplete="mobile"
+										placeholder={$i18n.t('Enter Your Mobile Number')}
 										required
 									/>
 								</div>
