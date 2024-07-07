@@ -218,6 +218,7 @@ async def signup(request: Request, response: Response, form_data: SignupForm):
         user = Auths.insert_new_auth(
             form_data.email.lower(),
             hashed,
+            form_data.mobile,
             form_data.name,
             form_data.profile_image_url,
             role,
@@ -287,6 +288,7 @@ async def add_user(form_data: AddUserForm, user=Depends(get_admin_user)):
             form_data.email.lower(),
             hashed,
             form_data.name,
+            form_data.mobile,
             form_data.profile_image_url,
             form_data.role,
         )

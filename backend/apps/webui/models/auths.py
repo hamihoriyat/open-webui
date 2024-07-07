@@ -24,6 +24,8 @@ class Auth(Model):
     id = CharField(unique=True)
     email = CharField()
     password = TextField()
+    ##Added customize code with Hami##
+    mobile = CharField()
     active = BooleanField()
 
     class Meta:
@@ -34,6 +36,7 @@ class AuthModel(BaseModel):
     id: str
     email: str
     password: str
+    mobile: str
     active: bool = True
 
 
@@ -86,7 +89,7 @@ class SignupForm(BaseModel):
     name: str
     email: str
     password: str
-    
+    mobile: str
     profile_image_url: Optional[str] = "/user.png"
 
 
@@ -103,6 +106,7 @@ class AuthsTable:
         self,
         email: str,
         password: str,
+        mobile: str,
         name: str,
         profile_image_url: str = "/user.png",
         role: str = "pending",
@@ -113,12 +117,12 @@ class AuthsTable:
         id = str(uuid.uuid4())
 
         auth = AuthModel(
-            **{"id": id, "email": email, "password": password, "active": True}
+            **{"id": id, "email": email, "password": password, "mobile": mobile, "active": True}
         )
         result = Auth.create(**auth.model_dump())
 
         user = Users.insert_new_user(
-            id, name, email, profile_image_url, role, oauth_sub
+            id, name, email, mobile, profile_image_url, role, oauth_sub
         )
 
         if result and user:

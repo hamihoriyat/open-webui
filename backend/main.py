@@ -1895,11 +1895,15 @@ async def oauth_callback(provider: str, request: Request, response: Response):
         raise HTTPException(400, detail=ERROR_MESSAGES.INVALID_CRED)
     provider_sub = f"{provider}@{sub}"
     email = user_data.get("email", "").lower()
+    mobile=user_data.get("mobile","")
     # We currently mandate that email addresses are provided
     if not email:
         log.warning(f"OAuth callback failed, email is missing: {user_data}")
         raise HTTPException(400, detail=ERROR_MESSAGES.INVALID_CRED)
-
+     # We currently mandate that mobile number are provided
+    if not mobile:
+        log.warning(f"OAuth callback failed, mobile is missing: {user_data}")
+        raise HTTPException(400, detail=ERROR_MESSAGES.INVALID_CRED)
     # Check if the user exists
     user = Users.get_user_by_oauth_sub(provider_sub)
 
@@ -1951,6 +1955,7 @@ async def oauth_callback(provider: str, request: Request, response: Response):
                     str(uuid.uuid4())
                 ),  # Random password, not used
                 name=user_data.get("name", "User"),
+                mobile=mobile,
                 profile_image_url=picture_url,
                 role=role,
                 oauth_sub=provider_sub,
