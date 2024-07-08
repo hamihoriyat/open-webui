@@ -197,7 +197,7 @@
 										bind:value={mobile}
 										type="text"
 										class=" px-5 py-3 rounded-2xl w-full text-sm outline-none border dark:border-none dark:bg-gray-900"
-										autocomplete="mobile"
+										inputmode="tel"
 										placeholder={$i18n.t('Enter Your Mobile Number')}
 										required
 									/>

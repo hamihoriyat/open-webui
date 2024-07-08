@@ -17,7 +17,7 @@ ARG UID=0
 ARG GID=0
 
 ######## WebUI frontend ########
-FROM --platform=$BUILDPLATFORM node:21-alpine3.19 as build
+FROM --platform=$BUILDPLATFORM docker.iranserver.com/node:21-alpine3.19 as build
 ARG BUILD_HASH
 
 WORKDIR /app
@@ -30,7 +30,7 @@ ENV APP_BUILD_HASH=${BUILD_HASH}
 RUN npm run build
 
 ######## WebUI backend ########
-FROM python:3.11-slim-bookworm as base
+FROM docker.iranserver.com/python:3.11-slim-bookworm as base
 
 # Use args
 ARG USE_CUDA
@@ -135,7 +135,7 @@ RUN pip3 install uv && \
 
 
 
-# copy embedding weight from build
+# COPY embedding weight from build
 # RUN mkdir -p /root/.cache/chroma/onnx_models/all-MiniLM-L6-v2
 # COPY --from=build /app/onnx /root/.cache/chroma/onnx_models/all-MiniLM-L6-v2/onnx
 
