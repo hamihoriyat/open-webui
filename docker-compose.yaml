@@ -5,6 +5,11 @@ services:
     container_name: ollama
     pull_policy: always
     tty: true
+    dns:
+      - 178.22.122.100
+      - 185.51.200.2
+    dns_search:
+      - openai.com  
     restart: unless-stopped
     image: docker.iranserver.com/ollama/ollama:${OLLAMA_DOCKER_TAG-latest}
 
@@ -14,21 +19,82 @@ services:
       args:
         OLLAMA_BASE_URL: '/ollama'
       dockerfile: Dockerfile
-   # image: docker.iranserver.com/ghcr.io/open-webui/open-webui:${WEBUI_DOCKER_TAG-main}
+        #    image: ghcr.io/open-webui/open-webui:${WEBUI_DOCKER_TAG-main}
     container_name: open-webui
     volumes:
       - open-webui:/app/backend/data
     depends_on:
       - ollama
-    ports:
-      - ${OPEN_WEBUI_PORT-3000}:8080
+      - traefik
+    dns:
+      - 178.22.122.100
+      - 185.51.200.2
+    dns_search:
+      - openai.com      
     environment:
       - 'OLLAMA_BASE_URL=http://ollama:11434'
       - 'WEBUI_SECRET_KEY='
     extra_hosts:
       - host.docker.internal:host-gateway
     restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.open-webui.rule=Host(`azadai.ir`) || Host(`www.azadai.ir`)" # Add both domains here
+      - "traefik.http.services.open-webui.loadbalancer.server.port=8080" # Replace "<PORT>" with the port your frontend is listening to.
+      - "traefik.http.routers.open-webui.tls.certresolver=mycert"
+      - "traefik.http.routers.open-webui.middlewares=https-redirect"
+      - "traefik.http.middlewares.https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.open-webui-secure.tls=true"
+      - 'traefik.http.routers.open-webui.middlewares=redirect-www'
+      - "traefik.http.middlewares.redirect-www.redirectregex.regex=^https://www.azadai.ir/(.*)"
+      - "traefik.http.middlewares.redirect-www.redirectregex.replacement=https://azadai.ir/$${1}"
+      - "traefik.http.middlewares.redirect-www.redirectregex.permanent=true"    
+  traefik:
+    image: docker.iranserver.com/traefik:v3.0.4
+    command:
+      - "--log.level=INFO"
+      - "--log.filepath=/log-file.log"
+      - "--log.format=json"
+      - "--api=true"
+      - "--ping=true"
+      - "--accesslog=true"
+      - "--accesslog.bufferingsize=100"
+      - "--api.insecure=true"
+      - "--providers.docker.endpoint=unix:///var/run/docker.sock"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.http.address=:80"
+      - "--entrypoints.https.address=:443"
 
+      - "--certificatesresolvers.mycert.acme.email=hami.horiyat.software@gmail.com"
+      - "--certificatesresolvers.mycert.acme.storage=/acme/acme.json"
+      - "--certificatesresolvers.mycert.acme.tlschallenge=true"
+
+      - "--providers.file.filename=/traefik/config.yml"
+    ports:
+      # - 80:80
+      - 443:443
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - traefik-acme:/acme
+      - ./traefik:/traefik
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik.entrypoints=http"
+      - "traefik.http.routers.traefik.rule=Host(`balancer.azadai.ir`)"
+      - "traefik.http.routers.traefik.middlewares=https-redirect"
+      - "traefik.http.middlewares.https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.web-auth.basicauth.users=azadaiadmin:$$apr1$$MLLgMx3m$$OlxrD0jTgpa56DcDr7s651"
+      - "traefik.http.routers.traefik-secure.middlewares=web-auth"
+      - "traefik.http.routers.traefik-secure.entrypoints=https"
+      - "traefik.http.routers.traefik-secure.rule=Host(`balancer.azadai.ir`)"
+      - "traefik.http.routers.traefik-secure.tls=true"
+      - "traefik.http.routers.traefik-secure.tls.options=default"
+      - "traefik.http.routers.traefik-secure.tls.certresolver=mycert"
+      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
 volumes:
   ollama: {}
   open-webui: {}
+  traefik-acme:
+    name: traefik-acme
