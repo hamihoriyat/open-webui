@@ -122,9 +122,9 @@ class AuthsTable:
             id, name, email, mobile, profile_image_url, role, oauth_sub
         )
 
-            if result and user:
+        if result and user:
                 return user
-            else:
+        else:
                 return None
 
     def authenticate_user(self, email: str, password: str) -> Optional[UserModel]:
