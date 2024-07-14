@@ -21,6 +21,7 @@ class User(Base):
     name = Column(String)
     email = Column(String)
     role = Column(String)
+    mobile=Column(String)
     profile_image_url = Column(Text)
 
     last_active_at = Column(BigInteger)

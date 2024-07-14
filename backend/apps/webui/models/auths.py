@@ -116,11 +116,14 @@ class AuthsTable:
         auth = AuthModel(
             **{"id": id, "email": email, "password": password, "mobile": mobile, "active": True}
         )
-        result = Auth.create(**auth.model_dump())
+        result = Auth(**auth.model_dump())
+        db.add(result)
 
         user = Users.insert_new_user(
             id, name, email, mobile, profile_image_url, role, oauth_sub
         )
+        db.commit()
+        db.refresh(result)
 
         if result and user:
                 return user
