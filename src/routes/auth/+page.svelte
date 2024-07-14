@@ -17,7 +17,7 @@
 	let name = '';
 	let email = '';
 	let password = '';
-	let mobile='';
+	let mobile = '';
 
 	const setSessionUser = async (sessionUser) => {
 		if (sessionUser) {
@@ -34,7 +34,7 @@
 	};
 
 	const signInHandler = async () => {
-		const sessionUser = await userSignIn(email, password,mobile).catch((error) => {
+		const sessionUser = await userSignIn(email, password, mobile).catch((error) => {
 			toast.error(error);
 			return null;
 		});
@@ -43,12 +43,16 @@
 	};
 
 	const signUpHandler = async () => {
-		const sessionUser = await userSignUp(name, email, password,mobile, generateInitialsImage(name)).catch(
-			(error) => {
-				toast.error(error);
-				return null;
-			}
-		);
+		const sessionUser = await userSignUp(
+			name,
+			email,
+			password,
+			mobile,
+			generateInitialsImage(name)
+		).catch((error) => {
+			toast.error(error);
+			return null;
+		});
 
 		await setSessionUser(sessionUser);
 	};
@@ -132,9 +136,9 @@
 			</div>
 		</div> -->
 
-		<div class="w-full sm:max-w-md px-10 min-h-screen flex flex-col text-center">
+		<div class="w-full sm:max-w-md px-10 min-h-screen flex flex-col text-center" dir="rtl">
 			{#if ($config?.features.auth_trusted_header ?? false) || $config?.features.auth === false}
-				<div class=" my-auto pb-10 w-full">
+				<div class=" my-auto pb-10 w-full" dir="rtl">
 					<div
 						class="flex items-center justify-center gap-3 text-xl sm:text-2xl text-center font-semibold dark:text-gray-200"
 					>
@@ -166,18 +170,18 @@
 
 							{#if mode === 'signup'}
 								<div class=" mt-1 text-xs font-medium text-gray-500">
-									ⓘ {$WEBUI_NAME}
+									<!-- ⓘ {$WEBUI_NAME}
 									{$i18n.t(
 										'does not make any external connections, and your data stays securely on your locally hosted server.'
-									)}
+									)} -->
 								</div>
 							{/if}
 						</div>
 
-						<div class="flex flex-col mt-4">
+						<div class="flex flex-col mt-4" dir="rtl">
 							{#if mode === 'signup'}
 								<div>
-									<div class=" text-sm font-medium text-left mb-1">{$i18n.t('Name')}</div>
+									<div class=" text-sm font-medium text-right mb-1">{$i18n.t('Name')}</div>
 									<input
 										bind:value={name}
 										type="text"
@@ -192,7 +196,7 @@
 							{/if}
 							{#if mode === 'signup'}
 								<div>
-									<div class=" text-sm font-medium text-left mb-1">{$i18n.t('Mobile')}</div>
+									<div class=" text-sm font-medium text-right mb-1">{$i18n.t('Mobile')}</div>
 									<input
 										bind:value={mobile}
 										type="text"
@@ -207,7 +211,7 @@
 							{/if}
 
 							<div class="mb-2">
-								<div class=" text-sm font-medium text-left mb-1">{$i18n.t('Email')}</div>
+								<div class=" text-sm font-medium text-right mb-1">{$i18n.t('Email')}</div>
 								<input
 									bind:value={email}
 									type="email"
@@ -219,7 +223,7 @@
 							</div>
 
 							<div>
-								<div class=" text-sm font-medium text-left mb-1">{$i18n.t('Password')}</div>
+								<div class=" text-sm font-medium text-right mb-1">{$i18n.t('Password')}</div>
 
 								<input
 									bind:value={password}
@@ -362,8 +366,8 @@
 
 <style>
 	.font-mona {
-		font-family: 'Mona Sans', -apple-system, 'Vazir-Medium','Inter', ui-sans-serif, system-ui, 'Segoe UI', Roboto,
-			Ubuntu, Cantarell, 'Noto Sans', sans-serif, 'Helvetica Neue', Arial, 'Apple Color Emoji',
-			'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+		font-family: 'Vazir-Medium', -apple-system, 'Vazir-Medium', 'Inter', ui-sans-serif, system-ui,
+			'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif, 'Helvetica Neue', Arial,
+			'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 	}
 </style>

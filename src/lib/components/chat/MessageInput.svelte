@@ -497,7 +497,7 @@
 					>
 						<div
 							class="flex-1 flex flex-col relative w-full rounded-3xl px-1.5 bg-gray-50 dark:bg-gray-850 dark:text-gray-100"
-							dir={$settings?.chatDirection ?? 'LTR'}
+							dir={$settings?.chatDirection ?? 'RTL'}
 						>
 							{#if files.length > 0}
 								<div class="mx-2 mt-2 mb-1 flex flex-wrap gap-2">

@@ -29,7 +29,7 @@
 	let showUsername = false;
 
 	let chatBubble = true;
-	let chatDirection: 'LTR' | 'RTL' = 'LTR';
+	let chatDirection: 'LTR' | 'RTL' = 'RTL';
 
 	let showEmojiInCall = false;
 	let voiceInterruption = false;
@@ -141,7 +141,7 @@
 		chatBubble = $settings.chatBubble ?? true;
 		widescreenMode = $settings.widescreenMode ?? false;
 		splitLargeChunks = $settings.splitLargeChunks ?? false;
-		chatDirection = $settings.chatDirection ?? 'LTR';
+		chatDirection = $settings.chatDirection ?? 'RTL';
 		userLocation = $settings.userLocation ?? false;
 
 		defaultModelId = $settings?.models?.at(0) ?? '';

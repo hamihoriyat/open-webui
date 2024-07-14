@@ -100,7 +100,7 @@
 				: [navigator.language || navigator.userLanguage];
 			const lang = backendConfig.default_locale
 				? backendConfig.default_locale
-				: bestMatchingLanguage(languages, browserLanguages, 'en-US');
+				: bestMatchingLanguage(languages, browserLanguages, 'fa-IR');
 			$i18n.changeLanguage(lang);
 		}
 

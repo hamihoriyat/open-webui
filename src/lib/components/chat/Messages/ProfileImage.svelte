@@ -7,7 +7,7 @@
 	export let src = '/user.png';
 </script>
 
-<div class={`flex-shrink-0 ${($settings?.chatDirection ?? 'LTR') === 'LTR' ? 'mr-3' : 'ml-3'}`}>
+<div class={`flex-shrink-0 ${($settings?.chatDirection ?? 'RTL') === 'LTR' ? 'mr-3' : 'ml-3'}`}>
 	<img
 		crossorigin="anonymous"
 		src={src.startsWith(WEBUI_BASE_URL) ||

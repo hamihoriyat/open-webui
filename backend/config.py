@@ -712,7 +712,7 @@ ENABLE_SIGNUP = PersistentConfig(
 DEFAULT_LOCALE = PersistentConfig(
     "DEFAULT_LOCALE",
     "ui.default_locale",
-    os.environ.get("DEFAULT_LOCALE", ""),
+    os.environ.get("DEFAULT_LOCALE", "fa-IR"),
 )
 
 DEFAULT_MODELS = PersistentConfig(

@@ -84,7 +84,7 @@ type Settings = {
 	notificationEnabled?: boolean;
 	title?: TitleSettings;
 	splitLargeDeltas?: boolean;
-	chatDirection: 'LTR' | 'RTL';
+	chatDirection: 'RTL' | 'LTR';
 
 	system?: string;
 	requestFormat?: string;
