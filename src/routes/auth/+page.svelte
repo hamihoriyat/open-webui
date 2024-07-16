@@ -143,8 +143,9 @@
 						class="flex items-center justify-center gap-3 text-xl sm:text-2xl text-center font-semibold dark:text-gray-200"
 					>
 						<div>
-							{$i18n.t('Signing in')}
-							{$i18n.t('to')}
+							<!-- {$i18n.t('Signing in')}
+							{$i18n.t('to')} -->
+							<span>ورود به</span>
 							{$WEBUI_NAME}
 						</div>
 
@@ -163,8 +164,8 @@
 					>
 						<div class="mb-1">
 							<div class=" text-2xl font-medium">
-								{mode === 'signin' ? $i18n.t('Sign in') : $i18n.t('Sign up')}
-								{$i18n.t('to')}
+								{mode === 'signin' ? "ورود به" : "ثبت نام در"}
+								<!-- {$i18n.t('to')} -->
 								{$WEBUI_NAME}
 							</div>
 
@@ -181,13 +182,13 @@
 						<div class="flex flex-col mt-4" dir="rtl">
 							{#if mode === 'signup'}
 								<div>
-									<div class=" text-sm font-medium text-right mb-1">{$i18n.t('Name')}</div>
+									<div class=" text-sm font-medium text-right mb-1">نام</div>
 									<input
 										bind:value={name}
 										type="text"
 										class=" px-5 py-3 rounded-2xl w-full text-sm outline-none border dark:border-none dark:bg-gray-900"
 										autocomplete="name"
-										placeholder={$i18n.t('Enter Your Full Name')}
+										placeholder="نام کامل خود را وارد نمایید"
 										required
 									/>
 								</div>
@@ -196,13 +197,13 @@
 							{/if}
 							{#if mode === 'signup'}
 								<div>
-									<div class=" text-sm font-medium text-right mb-1">{$i18n.t('Mobile')}</div>
+									<div class=" text-sm font-medium text-right mb-1">تلفن همراه</div>
 									<input
 										bind:value={mobile}
 										type="text"
 										class=" px-5 py-3 rounded-2xl w-full text-sm outline-none border dark:border-none dark:bg-gray-900"
 										inputmode="tel"
-										placeholder={$i18n.t('Enter Your Mobile Number')}
+										placeholder="شماره تلفن همراه خود را وارد نمایید"
 										required
 									/>
 								</div>
@@ -211,25 +212,25 @@
 							{/if}
 
 							<div class="mb-2">
-								<div class=" text-sm font-medium text-right mb-1">{$i18n.t('Email')}</div>
+								<div class=" text-sm font-medium text-right mb-1">ایمیل</div>
 								<input
 									bind:value={email}
 									type="email"
 									class=" px-5 py-3 rounded-2xl w-full text-sm outline-none border dark:border-none dark:bg-gray-900"
 									autocomplete="email"
-									placeholder={$i18n.t('Enter Your Email')}
+									placeholder="ایمیل خود را وارد نمایید"
 									required
 								/>
 							</div>
 
 							<div>
-								<div class=" text-sm font-medium text-right mb-1">{$i18n.t('Password')}</div>
+								<div class=" text-sm font-medium text-right mb-1">رمز عبور</div>
 
 								<input
 									bind:value={password}
 									type="password"
 									class=" px-5 py-3 rounded-2xl w-full text-sm outline-none border dark:border-none dark:bg-gray-900"
-									placeholder={$i18n.t('Enter Your Password')}
+									placeholder="رمز عبور خود را وارد نمایید"
 									autocomplete="current-password"
 									required
 								/>
@@ -241,14 +242,14 @@
 								class=" bg-gray-900 hover:bg-gray-800 w-full rounded-2xl text-white font-medium text-sm py-3 transition"
 								type="submit"
 							>
-								{mode === 'signin' ? $i18n.t('Sign in') : $i18n.t('Create Account')}
+								{mode === 'signin' ? "ورود" : "ساخت حساب کاربری"}
 							</button>
 
 							{#if $config?.features.enable_signup}
 								<div class=" mt-4 text-sm text-center">
 									{mode === 'signin'
-										? $i18n.t("Don't have an account?")
-										: $i18n.t('Already have an account?')}
+										? "حساب کاربری ندارید؟"
+										: "از قبل حساب کاربری دارید؟"}
 
 									<button
 										class=" font-medium underline"
@@ -261,7 +262,7 @@
 											}
 										}}
 									>
-										{mode === 'signin' ? $i18n.t('Sign up') : $i18n.t('Sign in')}
+										{mode === 'signin' ? "ثبت نام" : "ورود"}
 									</button>
 								</div>
 							{/if}

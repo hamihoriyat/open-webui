@@ -1,10 +1,10 @@
 [
 	{
-		"code": "fa-IR",
-		"title": "Persian (فارسی)"
-	},
-	{
 		"code": "en-US",
 		"title": "English (US)"
+	},
+	{
+		"code": "fa-IR",
+		"title": "Persian (فارسی)"
 	}
 ]

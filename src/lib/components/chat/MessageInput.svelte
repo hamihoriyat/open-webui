@@ -668,8 +668,9 @@
 									{/each}
 								</div>
 							{/if}
-
+							
 							<div class=" flex">
+								
 								<div class=" ml-0.5 self-end mb-1.5 flex space-x-1">
 									<InputMenu
 										bind:webSearchEnabled
@@ -709,10 +710,11 @@
 										</button>
 									</InputMenu>
 								</div>
-
+                            
 								<textarea
 									id="chat-textarea"
 									bind:this={chatTextAreaElement}
+									maxlength="5000"
 									class="scrollbar-hidden bg-gray-50 dark:bg-gray-850 dark:text-gray-100 outline-none w-full py-3 px-1 rounded-xl resize-none h-[48px]"
 									placeholder={chatInputPlaceholder !== ''
 										? chatInputPlaceholder
@@ -878,7 +880,7 @@
 										}
 									}}
 								/>
-
+								
 								<div class="self-end mb-2 flex space-x-1 mr-1">
 									{#if messages.length == 0 || messages.at(-1).done == true}
 										<Tooltip content={$i18n.t('Record voice')}>
@@ -927,6 +929,7 @@
 								</div>
 							</div>
 						</div>
+						
 						<div class="flex items-end w-10">
 							{#if messages.length == 0 || messages.at(-1).done == true}
 								{#if prompt === ''}
@@ -965,6 +968,7 @@
 											</button>
 										</Tooltip>
 									</div>
+									
 								{:else}
 									<div class=" flex items-center mb-1">
 										<Tooltip content={$i18n.t('Send message')}>
@@ -1018,8 +1022,8 @@
 						</div>
 					</form>
 				{/if}
-
-				<div class="mt-1.5 text-xs text-gray-500 text-center line-clamp-1">
+				<p class="ml-5 text-zinc-400">{prompt.length}/5000</p>
+				<div class="mt-1.5 text-xs text-gray-500 text-center line-clamp-1" dir="rtl">
 					{$i18n.t('LLMs can make mistakes. Verify important information.')}
 				</div>
 			</div>
