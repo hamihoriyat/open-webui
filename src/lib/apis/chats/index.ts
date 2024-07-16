@@ -1,9 +1,19 @@
 import { WEBUI_API_BASE_URL } from '$lib/constants';
 import { getTimeRange } from '$lib/utils';
+import { json } from '@sveltejs/kit';
+import { toast } from 'svelte-sonner';
 
 export const createNewChat = async (token: string, chat: object) => {
 	let error = null;
-
+	let content_length = await chat.messages[0].content.length;
+	// Added by Hami
+	if (content_length > 20) {
+		await toast.error('Your prompt is more than characters limit');
+		return json({
+			error: 'This content more than verify limit'
+		});
+	}
+	//
 	const res = await fetch(`${WEBUI_API_BASE_URL}/chats/new`, {
 		method: 'POST',
 		headers: {
@@ -492,7 +502,6 @@ export const deleteSharedChatById = async (token: string, id: string) => {
 
 export const updateChatById = async (token: string, id: string, chat: object) => {
 	let error = null;
-
 	const res = await fetch(`${WEBUI_API_BASE_URL}/chats/${id}`, {
 		method: 'POST',
 		headers: {

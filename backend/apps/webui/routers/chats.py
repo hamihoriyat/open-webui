@@ -7,6 +7,7 @@ from pydantic import BaseModel
 import json
 import logging
 
+
 from apps.webui.models.users import Users
 from apps.webui.models.chats import (
     ChatModel,
@@ -93,6 +94,7 @@ async def get_user_chat_list_by_user_id(
 
 @router.post("/new", response_model=Optional[ChatResponse])
 async def create_new_chat(form_data: ChatForm, user=Depends(get_verified_user)):
+    
     try:
         chat = Chats.insert_new_chat(user.id, form_data)
         return ChatResponse(**{**chat.model_dump(), "chat": json.loads(chat.chat)})
@@ -270,6 +272,7 @@ async def update_chat_by_id(
 ):
     chat = Chats.get_chat_by_id_and_user_id(id, user.id)
     if chat:
+
         updated_chat = {**json.loads(chat.chat), **form_data.chat}
 
         chat = Chats.update_chat_by_id(id, updated_chat)
