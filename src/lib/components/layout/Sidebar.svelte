@@ -88,6 +88,7 @@
 
 		let touchstart;
 		let touchend;
+		
 
 		function checkDirection() {
 			const screenWidth = window.innerWidth;
@@ -189,6 +190,10 @@
 			await pinnedChats.set(await getChatListByTagName(localStorage.token, 'pinned'));
 		}
 	};
+
+	function handleSubPage(){
+			window.location.href="/subscribtion";
+		}
 </script>
 
 <ArchivedChatsModal
@@ -534,6 +539,23 @@
 			<!-- <hr class=" border-gray-900 mb-1 w-full" /> -->
 
 			<div class="flex flex-col font-primary">
+				<button
+				class=" flex rounded-xl py-3 px-3.5 w-full hover:bg-gray-100 dark:hover:bg-gray-900 transition"
+				on:click={() => {
+					handleSubPage()
+					//console.log("clicked")
+				}}
+			>
+				<div class=" self-center mr-3">
+					<img
+						src="../../../sub5.png"
+						class=" max-w-[30px] object-cover rounded-full"
+						alt="User profile"
+					/>
+				</div>
+				
+				<div class=" self-center font-medium">خرید اشتراک ویژه</div>
+			</button>
 				{#if $user !== undefined}
 					<UserMenu
 						role={$user.role}
@@ -543,6 +565,7 @@
 							}
 						}}
 					>
+			
 						<button
 							class=" flex rounded-xl py-3 px-3.5 w-full hover:bg-gray-100 dark:hover:bg-gray-900 transition"
 							on:click={() => {
@@ -556,8 +579,10 @@
 									alt="User profile"
 								/>
 							</div>
+							
 							<div class=" self-center font-medium">{$user.name}</div>
 						</button>
+						
 					</UserMenu>
 				{/if}
 			</div>

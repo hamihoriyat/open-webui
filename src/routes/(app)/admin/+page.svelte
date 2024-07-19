@@ -19,6 +19,7 @@
 	import UserChatsModal from '$lib/components/admin/UserChatsModal.svelte';
 	import AddUserModal from '$lib/components/admin/AddUserModal.svelte';
 	import ConfirmDialog from '$lib/components/common/ConfirmDialog.svelte';
+	
 
 	const i18n = getContext('i18n');
 
@@ -231,6 +232,18 @@
 							<span class="invisible">▲</span>
 						{/if}
 					</th>
+					<th
+					scope="col"
+					class="px-3 py-2 cursor-pointer select-none"
+					on:click={() => setSortKey('group')}
+				>
+					{$i18n.t('Group')}
+					{#if sortKey === 'group'}
+						{sortOrder === 'asc' ? '▲' : '▼'}
+					{:else}
+						<span class="invisible">▲</span>
+					{/if}
+				</th>
 
 					<th scope="col" class="px-3 py-2 text-right" />
 				</tr>
@@ -304,6 +317,7 @@
 						<td class=" px-3 py-2">
 							{dayjs(user.created_at * 1000).format($i18n.t('MMMM DD, YYYY'))}
 						</td>
+						<td class=" px-3 py-2"> {user.group_id ?? ''} </td>
 
 						<td class="px-3 py-2 text-right">
 							<div class="flex justify-end w-full">

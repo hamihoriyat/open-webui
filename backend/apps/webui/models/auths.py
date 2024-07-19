@@ -93,6 +93,7 @@ class SignupForm(BaseModel):
 
 class AddUserForm(SignupForm):
     role: Optional[str] = "pending"
+    group_id: Optional[str]=None
 
 
 class AuthsTable:
@@ -120,7 +121,7 @@ class AuthsTable:
         db.add(result)
 
         user = Users.insert_new_user(
-            id, name, email, mobile, profile_image_url, role, oauth_sub
+            id, name, email, mobile ,profile_image_url, role, oauth_sub
         )
         db.commit()
         db.refresh(result)

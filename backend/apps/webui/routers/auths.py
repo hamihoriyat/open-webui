@@ -282,7 +282,6 @@ async def add_user(form_data: AddUserForm, user=Depends(get_admin_user)):
 
     try:
 
-        print(form_data)
         hashed = get_password_hash(form_data.password)
         user = Auths.insert_new_auth(
             form_data.email.lower(),

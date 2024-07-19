@@ -22,6 +22,7 @@ class User(Base):
     email = Column(String)
     role = Column(String)
     mobile=Column(String)
+    group_id=Column(String,nullable=True,default=None)
     profile_image_url = Column(Text)
 
     last_active_at = Column(BigInteger)
@@ -60,6 +61,7 @@ class UserModel(BaseModel):
     info: Optional[dict] = None
 
     oauth_sub: Optional[str] = None
+    group_id: str="None"
 
     model_config = ConfigDict(from_attributes=True)
 
@@ -72,6 +74,7 @@ class UserModel(BaseModel):
 class UserRoleUpdateForm(BaseModel):
     id: str
     role: str
+    group_id: str=None
 
 
 class UserUpdateForm(BaseModel):
@@ -94,6 +97,7 @@ class UsersTable:
         profile_image_url: str = "/user.png",
         role: str = "pending",
         oauth_sub: Optional[str] = None,
+        # group_id: str=None
     ) -> Optional[UserModel]:
         with get_db() as db:
             user = UserModel(
@@ -101,8 +105,9 @@ class UsersTable:
                     "id": id,
                     "name": name,
                     "email": email,
-                "mobile": mobile,
+                    "mobile": mobile,
                     "role": role,
+                    # "group_id":group_id,
                     "profile_image_url": profile_image_url,
                     "last_active_at": int(time.time()),
                     "created_at": int(time.time()),

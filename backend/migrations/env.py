@@ -15,6 +15,7 @@ from apps.webui.models.prompts import Prompt
 from apps.webui.models.tags import Tag, ChatIdTag
 from apps.webui.models.tools import Tool
 from apps.webui.models.users import User
+from apps.webui.models.groups import Group
 from apps.webui.models.files import File
 from apps.webui.models.functions import Function
 
