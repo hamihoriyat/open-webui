@@ -50,9 +50,9 @@
 			return null;
 		});
 
-		toast.success($i18n.t('Redirecting you to OpenWebUI Community'));
+		toast.success($i18n.t('Redirecting you to Azad AI Community'));
 
-		const url = 'https://openwebui.com';
+		const url = 'https://community.azadai.ir';
 
 		const tab = await window.open(`${url}/functions/create`, '_blank');
 

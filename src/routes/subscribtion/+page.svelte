@@ -1,46 +1,65 @@
 <script>
   export let pricingOptions = [
     {
-      title: 'برنز',
+      title: 'نقره ای',
       description: 'با ثبت نام اولیه در AzadAI می توانید از این طرح استفاده نمایید',
       price: 'رایگان',
       features: [
-        'استفاده از مدل هایGPT-4o-miniوGPT-3.5-Turbo',
-        'استفاده از مدل های رایگان مانند Llama3:8b و...',
-        'استفاده از سرویس مکامله صوتی با دستیار هوشمند',
+        'دسترسی رایگان به مدل هایGPT-4o-miniوGPT-3.5-Turbo',
+        'دسترسی رایگان به مدل های Llama3، Codegemma، phi3 و ...',
+        'استفاده از سرویس مکالمه صوتی با دستیار هوشمند',
+        ' بدون محدودیت آپلود فایل',
+        'بدون محدودیت تعداد پرامپت',
+        'محدودیت پرامپت ورودی ۲۰۰۰ کاراکتر'
     
       ],
-      popular: false,
-    },
-    {
-      title: 'نقره ای',
-      description: 'استفاده از مدل های GPT ، Claude و Gemini',
-      price: '۳۹۹هزار تومان/ماهیانه',
-      features: [
-      'استفاده از مدل هایGPT-4o،GPT-4،Claude 3.5 sonet و...',
-        'استفاده از مدل های رایگان مانند Llama3:8b و...',
-        'استفاده از سرویس مکامله صوتی با دستیار هوشمند',
-        'محدودیت پرامپت ورودی ۴۰۰۰ کاراکتر'
-      ],
+      button_name:'خرید اشتراک لازم نیست',
       popular: false,
     },
     {
       title: 'طلایی',
-      description: 'سرویس طلایی با کاهش محدودیت های پرامپت نسبت به سرویس نقره ای',
-      price: '۵۹۹ هزار تومان/ماهیانه',
+      description: 'امکان استفاده از مدل های حرفه ای GPT 4O و Claude Sonnet 3.5 و ...',
+      price: '۳۹۹ هزار تومان/ماهیانه',
       features: [
-        'استفاده از مدل هایGPT-4o،GPT-4،Claude 3.5 sonet و...',
-        'استفاده از مدل های رایگان مانند Llama3:8b و...',
-        'استفاده از سرویس مکامله صوتی با دستیار هوشمند',
-        'محدودیت پرامپت ورودی ۷۰۰۰ کاراکتر'
+        'دسترسی به تمام مدل های Claude و GPT و Gemini',
+        'دسترسی رایگان به مدل های Llama3، Codegemma، phi3 و ...',
+        'استفاده از سرویس مکالمه صوتی با دستیار هوشمند',
+        ' بدون محدودیت آپلود فایل',
+        'بدون محدودیت تعداد پرامپت',
+        'محدودیت پرامپت ورودی ۴۰۰۰ کاراکتر'
       ],
+      button_name:'خرید اشتراک',
+      popular: false,
+    },
+    {
+      title: 'سازمانی',
+      description: 'کامل ترین دسترسی به تمامی امکانات بدون هیچگونه محدودیتی به همراه API',
+      price: '۲۹۹۹ هزار تومان/ماهیانه',
+      features: [
+        'دسترسی به تمام مدل های Claude و GPT و Gemini',
+        'دسترسی رایگان به مدل های Llama3، Codegemma، phi3 و ...',
+        'استفاده از سرویس مکالمه صوتی با دستیار هوشمند',
+        'آپلود بدون محدودیت فایل',
+        'سرویس API دسترسی به تمامی مدل ها',
+        'امکان تعریف مدل های مخصوص  یا محدود سازی مدل های کاربران ',
+        'بدون محدودیت پرامپت ورودی',
+        'بدون محدودیت تعداد کاربر'
+      ],
+      button_name:'خرید اشتراک',
       popular: false,
     },
   ];
+  function goToHome(){
+    window.location.href="/";
+  }
 </script>
 
 <div class="bg-gray-900 py-10 flex flex-col min-h-screen justify-center" dir="rtl">
   <div class="max-w-7xl mx-auto px-4 text-white">
+    <h2 class="text-2xl font-bold text-center mb-5">ممنون که برای حمایت از ما به این صفحه اومدی.ولی هنوز امکان پرداخت فراهم نشده،پس به استفاده رایگان ادامه بده!</h2>
+    <div class="text-center mb-4">
+    <button on:click={()=>{goToHome()}} class="bg-orange-400 text-white py-2 px-4 rounded-lg mt-auto">بازگشت</button>
+  </div>
     <h2 class="text-3xl font-bold text-center mb-2">عضویت ویژه</h2>
     <p class="text-center mb-8">با خرید هریک از پلن های اشتراک ویژه،از دنیای بدون تحریم مدل های زبانی بهره مند شوید</p>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -62,7 +81,7 @@
               {/each}
             </ul>
           </div>
-          <button class="bg-orange-400 text-white py-2 px-4 rounded-lg mt-auto">خرید اشتراک</button>
+          <button class="bg-orange-400 text-white py-2 px-4 rounded-lg mt-auto">{option.button_name}</button>
         </div>
       {/each}
     </div>

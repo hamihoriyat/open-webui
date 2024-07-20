@@ -714,7 +714,7 @@
 								<textarea
 									id="chat-textarea"
 									bind:this={chatTextAreaElement}
-									maxlength="5000"
+									maxlength="2000"
 									class="scrollbar-hidden bg-gray-50 dark:bg-gray-850 dark:text-gray-100 outline-none w-full py-3 px-1 rounded-xl resize-none h-[48px]"
 									placeholder={chatInputPlaceholder !== ''
 										? chatInputPlaceholder
@@ -1023,7 +1023,7 @@
 					</form>
 				{/if}
 				<!-- Added by Hami -->
-				<p class="ml-5 text-zinc-400">{prompt.length}/5000</p>
+				<p class="ml-5 text-zinc-400">{prompt.length}/2000</p>
 				<div class="mt-1.5 text-xs text-gray-500 text-center line-clamp-1" dir="rtl">
 					{$i18n.t('LLMs can make mistakes. Verify important information.')}
 				</div>

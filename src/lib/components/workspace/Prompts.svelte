@@ -22,9 +22,9 @@
 	let deletePrompt = null;
 
 	const shareHandler = async (prompt) => {
-		toast.success($i18n.t('Redirecting you to OpenWebUI Community'));
+		toast.success($i18n.t('Redirecting you to Azad AI Community'));
 
-		const url = 'https://openwebui.com';
+		const url = 'https://community.azadai.ir';
 
 		const tab = await window.open(`${url}/prompts/create`, '_blank');
 		window.addEventListener(
