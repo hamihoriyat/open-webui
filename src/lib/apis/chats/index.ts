@@ -7,7 +7,7 @@ export const createNewChat = async (token: string, chat: object) => {
 	let error = null;
 	let content_length = await chat.messages[0].content.length;
 	// Added by Hami
-	if (content_length > 20) {
+	if (content_length > 50000) {
 		await toast.error('Your prompt is more than characters limit');
 		return json({
 			error: 'This content more than verify limit'
