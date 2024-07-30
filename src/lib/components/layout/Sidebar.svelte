@@ -192,8 +192,11 @@
 	};
 
 	function handleSubPage(){
-			window.location.href="/subscribtion";
-		}
+			//window.location.href="/subscribtion";
+			window.open(
+"/subscribtion", "_blank");
+        }
+		
 </script>
 
 <ArchivedChatsModal
