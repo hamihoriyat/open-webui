@@ -94,8 +94,9 @@
       <div class="mt-8 text-center text-gray-400">
           <p>در صورت نیاز به راهنمایی وارد این <a href="https://azadai.ir" class="text-white">لینک</a> شوید</p>
           <p>ایمیل پشتیبانی: support@azadai.ir</p>
+          <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=512937&Code=tToIqum34v4NxpP0Cnm0TTNV0C4uuAXF'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=512937&Code=tToIqum34v4NxpP0Cnm0TTNV0C4uuAXF' alt='' style='cursor:pointer' code='tToIqum34v4NxpP0Cnm0TTNV0C4uuAXF'></a>
     <br/>
-    <p>۲۴ ساعت تضمین بازگشت وجه</p>
+    <!-- <p>۲۴ ساعت تضمین بازگشت وجه</p> -->
       </div>
   </div>
 </div>
