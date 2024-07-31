@@ -108,9 +108,13 @@
 </svelte:head>
 
 {#if loaded}
+
 	<div class="fixed m-10 z-50">
+
 		<div class="flex space-x-2">
+			
 			<div class=" self-center">
+				
 				<img
 					crossorigin="anonymous"
 					src="{WEBUI_BASE_URL}/static/favicon.png"
@@ -120,13 +124,17 @@
 			</div>
 		</div>
 	</div>
-
-	<div class=" bg-white dark:bg-gray-950 min-h-screen w-full flex justify-center font-primary">
-		<!-- <div class="hidden lg:flex lg:flex-1 px-10 md:px-16 w-full bg-yellow-50 justify-center">
-			<div class=" my-auto pb-16 text-left">
+	
+	<div class=" bg-white dark:bg-gray-950 min-h-screen w-full flex justify-center font-primary ">
+		
+		
+		
+		<div class="hidden lg:flex lg:flex-1 px-10 md:px-16 w-full bg-yellow-50 justify-center ">
+			<!-- <div class="image"></div> -->
+			<div class=" my-auto pb-16 text-left ">
 				<div>
 					<div class=" font-semibold text-yellow-600 text-4xl">
-						Get up and running with <br />large language models, locally.
+					از دنیای بدون تحریم مدل های زبانی حرفه ای اسفاده کن <br />large language models, locally.
 					</div>
 
 					<div class="mt-2 text-yellow-600 text-xl">
@@ -134,17 +142,22 @@
 					</div>
 				</div>
 			</div>
-		</div> -->
+		</div>
 
 		<div class="w-full sm:max-w-md px-10 min-h-screen flex flex-col text-center" dir="rtl">
+			
+		
 			{#if ($config?.features.auth_trusted_header ?? false) || $config?.features.auth === false}
+			
 				<div class=" my-auto pb-10 w-full" dir="rtl">
 					<div
 						class="flex items-center justify-center gap-3 text-xl sm:text-2xl text-center font-semibold dark:text-gray-200"
 					>
+			
 						<div>
 							<!-- {$i18n.t('Signing in')}
 							{$i18n.t('to')} -->
+							
 							<span>ورود به</span>
 							{$WEBUI_NAME}
 						</div>
@@ -274,7 +287,11 @@
 							<hr class="w-64 h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
 							<span
 								class="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white dark:bg-gray-950"
+<<<<<<< HEAD
 								>{$i18n.t('or')}</span
+=======
+								></span
+>>>>>>> 483d8051 (changed design auth page)
 							>
 						</div>
 						<div class="flex flex-col space-y-2">
@@ -361,8 +378,11 @@
 					{/if}
 				</div>
 			{/if}
+		
 		</div>
+	
 	</div>
+
 {/if}
 
 <style>
@@ -371,4 +391,12 @@
 			'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif, 'Helvetica Neue', Arial,
 			'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 	}
+	.image {
+    /* position: absolute; */
+    height: 30rem;
+    width:100%;
+    top: 0;
+    background-image: url("assets/login.png")
+  }
+
 </style>
