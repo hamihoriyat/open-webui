@@ -287,11 +287,7 @@
 							<hr class="w-64 h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
 							<span
 								class="absolute px-3 font-medium text-gray-900 -translate-x-1/2 bg-white left-1/2 dark:text-white dark:bg-gray-950"
-<<<<<<< HEAD
-								>{$i18n.t('or')}</span
-=======
 								></span
->>>>>>> 483d8051 (changed design auth page)
 							>
 						</div>
 						<div class="flex flex-col space-y-2">
