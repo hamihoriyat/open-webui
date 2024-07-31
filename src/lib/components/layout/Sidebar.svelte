@@ -196,6 +196,12 @@
 			window.open(
 "/subscribtion", "_blank");
         }
+
+		function handleBlogPage(){
+			//window.location.href="/subscribtion";
+			window.open(
+"https://blog.azadai.ir/blog/learning", "_blank");
+        }
 		
 </script>
 
@@ -545,10 +551,29 @@
 				<button
 				class=" flex rounded-xl py-3 px-3.5 w-full hover:bg-gray-100 dark:hover:bg-gray-900 transition"
 				on:click={() => {
+					handleBlogPage()
+					//console.log("clicked")
+				}}
+			>
+			
+				<div class=" self-center mr-3">
+					<img
+						src="../../../blog2.png"
+						class=" max-w-[30px] object-cover rounded-full"
+						alt="User profile"
+					/>
+				</div>
+				
+				<div class=" self-center font-medium">وبلاگ آموزش</div>
+			</button>
+				<button
+				class=" flex rounded-xl py-3 px-3.5 w-full hover:bg-gray-100 dark:hover:bg-gray-900 transition"
+				on:click={() => {
 					handleSubPage()
 					//console.log("clicked")
 				}}
 			>
+
 				<div class=" self-center mr-3">
 					<img
 						src="../../../sub5.png"

@@ -131,18 +131,40 @@
 		
 		<div class="hidden lg:flex lg:flex-1 px-10 md:px-16 w-full bg-yellow-50 justify-center ">
 			<!-- <div class="image"></div> -->
-			<div class=" my-auto pb-16 text-left ">
-				<div>
-					<div class=" font-semibold text-yellow-600 text-4xl">
-					از دنیای بدون تحریم مدل های زبانی حرفه ای اسفاده کن <br />large language models, locally.
+			<div class=" my-auto pb-16 text-right float-right" dir="rtl">
+				<div class="float-right text-right" dir="rtl">
+					<div class=" font-semibold text-yellow-600 text-4xl" dir="rtl">
+						به دنیای هوش مصنوعی خوش آمدید!
+						<br>
 					</div>
 
-					<div class="mt-2 text-yellow-600 text-xl">
-						Run Llama 2, Code Llama, and other models. Customize and create your own.
+					<div class="mt-2 text-yellow-600 text-xl float-right" dir="rtl">
+						<br>
+						با خدمات ما، می‌توانید به آسانی و بدون نگرانی از تحریم‌ها،
+						<br>
+						از مدل‌های پیشرفته‌ای چون GPT ، Claude ، Gemini ، Llama3.1 
+						<br>
+						و دیگر مدل های زبانی بزرگ بهره‌مند شوید.
+						<br>
+						تجربه‌ای سریع و کارآمد در هر زمینه‌ای که نیاز دارید!
+						<br>
+						<div class="flex justify-center mt-10 mb-16">
+							<img src="/assets/gpt4.jpeg" alt="azadai gpt" class="mx-2 h-16 rounded" />
+							<img src="/assets/gpt3.5.jpeg" alt="azadai gpt" class="mx-2 h-16 rounded" />
+							<img src="/assets/claude.png" alt="azadai claude" class="mx-2 h-16 rounded" />
+							<img src="/assets/claude3.jpeg" alt="azadai claude" class="mx-2 h-16 rounded" />
+							<img src="/assets/gemini.jpeg" alt="azadai gemini" class="mx-2 h-16 rounded" />
+							<img src="/assets/qwen.png" alt="azadai qwen" class="mx-2 h-16 rounded" />
+							
+						</div>
 					</div>
+					
+				
 				</div>
 			</div>
+		
 		</div>
+	
 
 		<div class="w-full sm:max-w-md px-10 min-h-screen flex flex-col text-center" dir="rtl">
 			
