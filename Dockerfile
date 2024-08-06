@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile:1
+# syntax=docker.iranserver.com/docker/dockerfile:1
 # Initialize device type args
 # use build args in the docker build commmand with --build-arg="BUILDARG=true"
 ARG USE_CUDA=false
