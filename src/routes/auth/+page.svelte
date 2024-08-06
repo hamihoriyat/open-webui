@@ -243,8 +243,8 @@
 									/>
 								</div>
 
-								<hr class=" my-3 dark:border-gray-900" />
-							{/if}
+									<hr class=" my-3 dark:border-gray-900" />
+								{/if}
 
 							<div class="mb-2">
 								<div class=" text-sm font-medium text-right mb-1">ایمیل</div>
