@@ -92,13 +92,21 @@
             {/each}
         </div>
         <!-- Support Explanation Lines -->
-        <div class="mt-8 text-center text-gray-400">
-            <p>در صورت نیاز به راهنمایی وارد این <a href="https://azadai.ir" class="text-white">لینک</a> شوید</p>
+         <div class="container">
+     
+        <div class="column text-center">
+            <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=515612&Code=AKDQYXMezOsa9acJtXZe0XoOOOXrWkrZ'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=515612&Code=AKDQYXMezOsa9acJtXZe0XoOOOXrWkrZ' alt='' style='cursor:pointer' code='AKDQYXMezOsa9acJtXZe0XoOOOXrWkrZ'></a>
+        </div>
+        <div class="text-center text-gray-400 column large">
+            <p>در صورت نیاز به راهنمایی وارد این <a href="https://blog.azadai.ir" class="text-white">لینک</a> شوید</p>
             <p>ایمیل پشتیبانی: support@azadai.ir</p>
-            <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=512937&Code=tToIqum34v4NxpP0Cnm0TTNV0C4uuAXF'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=512937&Code=tToIqum34v4NxpP0Cnm0TTNV0C4uuAXF' alt='' style='cursor:pointer' code='tToIqum34v4NxpP0Cnm0TTNV0C4uuAXF'></a>
             <br/>
 			<p>برای امکان دسترسی به سرویس API برای افراد حقیقی به پشتیبانی ایمیل ارسال کنید.</p>
         </div>
+        <div class="column">
+            <span></span>
+        </div>
+    </div>
     </div>
 </div>
 
@@ -123,5 +131,21 @@
     /* Smaller text for ۰ */
     .smaller-text {
         font-size: 0.85rem; /* Adjust the value as needed */
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-around; /* Distribute space evenly */
+        align-items: flex-start; /* Align items at the start of the flex container's cross axis */
+        margin-top: 2rem; /* Adds some space from the top */
+        color: gray; /* Text color */
+    }
+    .column {
+        flex: 1; /* Each column takes equal space */
+        padding: 1rem; /* Adds some padding inside the columns */
+        text-align: center; /* Centers the text inside each column */
+    }
+    .column.large {
+        flex: 2; /* Makes this column larger */
     }
 </style>
